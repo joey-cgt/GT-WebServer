@@ -55,23 +55,28 @@ void MainReactor::Stop()
 
 void MainReactor::DoAccept()
 {
+    if(!m_acceptor.is_open()) 
+    {
+        std::cerr << "Acceptor is not open." << std::endl;
+        return;
+    }
+
     std::shared_ptr<SubReactor>& nextReactor = m_subReactors[m_nextReactorIndex++ % m_subReactors.size()];
     boost::asio::io_context& subIoContext = nextReactor->GetIoContext();
-    tcp::socket newSocket(subIoContext);    // 注意：这里的socket会在每次接受连接后被重置
+    auto newSocket = std::make_shared<tcp::socket>(subIoContext);
     m_acceptor.async_accept(
-        m_socket,
-        [this, &subIoContext](const boost::system::error_code& error) {
-            if (!error)
+        *newSocket, 
+        [this, newSocket](const boost::system::error_code& error) mutable {
+            if (!error) 
             {
-                // 将 socket 移交给 Session，并为下次 accept 创建新 socket
-                std::make_shared<Session>(tcp::socket(std::move(m_socket)))->Start();
-                m_socket = tcp::socket(subIoContext);
-                std::cout << "Accepted new connection." << std::endl;
-            }
-            else
+                std::make_shared<Session>(std::move(*newSocket))->Start();
+                std::cout << "New session create." << std::endl;
+            } 
+            else 
             {
                 std::cerr << "Error on accept: " << error.message() << std::endl;
             }
+
             DoAccept();
         });
 }
