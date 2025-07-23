@@ -1,0 +1,1 @@
+/usr/bin/g++ CMakeFiles/gt_client.dir/main.cpp.o -o gt_client  -lpthread -lboost_system 
