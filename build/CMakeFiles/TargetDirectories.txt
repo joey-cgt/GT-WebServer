@@ -1,8 +1,0 @@
-/usr/GT-WebServer/build/CMakeFiles/edit_cache.dir
-/usr/GT-WebServer/build/CMakeFiles/rebuild_cache.dir
-/usr/GT-WebServer/build/gt_server/CMakeFiles/gt_server.dir
-/usr/GT-WebServer/build/gt_server/CMakeFiles/edit_cache.dir
-/usr/GT-WebServer/build/gt_server/CMakeFiles/rebuild_cache.dir
-/usr/GT-WebServer/build/gt_client/CMakeFiles/gt_client.dir
-/usr/GT-WebServer/build/gt_client/CMakeFiles/edit_cache.dir
-/usr/GT-WebServer/build/gt_client/CMakeFiles/rebuild_cache.dir

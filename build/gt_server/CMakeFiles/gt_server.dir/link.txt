@@ -1,1 +1,0 @@
-/usr/bin/g++ CMakeFiles/gt_server.dir/src/main.cpp.o CMakeFiles/gt_server.dir/src/mainreactor.cpp.o CMakeFiles/gt_server.dir/src/session.cpp.o CMakeFiles/gt_server.dir/src/subreactor.cpp.o CMakeFiles/gt_server.dir/src/threadpool.cpp.o -o gt_server  -lpthread -lboost_system 
