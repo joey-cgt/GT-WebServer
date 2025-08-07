@@ -57,6 +57,8 @@ cd build/gt_client
 - **从Reactor**：管理已连接的客户端，处理I/O事件
 - **线程池**：处理业务逻辑，与Reactor线程解耦，提高并发处理能力
 
+![](/assets/pic_1.png "架构设计示意图")
+
 ### 核心组件
 
 - `MainReactor`：主反应堆实现，管理 acceptor 和从反应堆
